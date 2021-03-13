@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.OrderDao">
+    <resultMap id="OrderInfo" type="com.example.demo.entity.Order">
+        <id column="id" property="id"/>
+        <result column="order_id" property="orderId"/>
+        <result column="order_name" property="orderName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="order_status" property="orderStatus"/>
+    </resultMap>
+
+    <sql id="BaseColumn">
+        id,order_id,order_name,create_time,order_status
+    </sql>
+
+    <select id="queryOrderInfo"  resultMap="OrderInfo">
+        SELECT
+        <include refid="BaseColumn"/>
+        from my_order
+        <where>
+            <if test="orderName!=null and orderName!=''">
+                <!--and order_name like "%"#{orderName}"%"-->
+                and order_name like #{orderName}
+            </if>
+            <if test="orderStatus!=null and orderStatus!=''or orderStatus==0">
+                and order_status = #{orderStatus}
+            </if>
+        </where>
+    </select>
+</mapper>
+
