@@ -1,14 +1,11 @@
 package com.example.demo.entity;
 
 /**
- * @ClassName Book
+ * @ClassName Read
  * @Description
  * @Author Aldrich
- * @Date 2021/3/13 19:05
+ * @Date 2021/3/13 19:15
  * @Version 1.0
  **/
-public class Book {
-
-
-
+public class Read {
 }
