@@ -8,4 +8,8 @@ package com.example.demo.entity;
  * @Version 1.0
  **/
 public class Read {
+
+    private String name;
+    private String address;
+    
 }
