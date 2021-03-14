@@ -11,5 +11,5 @@ public class Read {
 
     private String name;
     private String address;
-    
+
 }
